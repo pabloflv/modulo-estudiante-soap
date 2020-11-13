@@ -114,76 +114,76 @@ public class AnaliticoPDFExporter {
                 boolean libre = false;
                 boolean materiaEcontrada = false;
 
-                if (usuarioExamenFinal.getCalificacion() >= 4) {
-                    long idMateria =
-                            usuarioExamenFinal.getExamenFinal().getMateria().getId();
-                    String nombreMateria =
-                            usuarioExamenFinal.getExamenFinal().getMateria().getNombre();
+//                if (usuarioExamenFinal.getCalificacion() >= 4) {
+                long idMateria =
+                        usuarioExamenFinal.getExamenFinal().getMateria().getId();
+                String nombreMateria =
+                        usuarioExamenFinal.getExamenFinal().getMateria().getNombre();
 
-                    cell.setPhrase(new Phrase(String.valueOf(nombreMateria)));
-                    table.addCell(cell);
-                    if (!materias.isEmpty()) {
-                        for (UsuarioMateria usuarioMateria : Collections
-                                .unmodifiableList(materias)) {
-                            if (usuarioMateria.getMateria().getId().equals(idMateria)) {
-                                materiaEcontrada = true;
-                                promedioMateria =
-                                        (usuarioMateria.getCalificacionTps() + usuarioMateria
-                                                .getCalificacionExamen()) / 2;
+                cell.setPhrase(new Phrase(String.valueOf(nombreMateria)));
+                table.addCell(cell);
+                if (!materias.isEmpty()) {
+                    for (UsuarioMateria usuarioMateria : Collections
+                            .unmodifiableList(materias)) {
+                        if (usuarioMateria.getMateria().getId().equals(idMateria)) {
+                            materiaEcontrada = true;
+                            promedioMateria =
+                                    (usuarioMateria.getCalificacionTps() + usuarioMateria
+                                            .getCalificacionExamen()) / 2;
 
-                                if (promedioMateria >= 4) {
-                                    cell.setPhrase(
-                                            new Phrase(String.valueOf(
-                                                    usuarioMateria.getCalificacionTps())));
-                                    table.addCell(cell);
+                            if (promedioMateria >= 4) {
+                                cell.setPhrase(
+                                        new Phrase(String.valueOf(
+                                                usuarioMateria.getCalificacionTps())));
+                                table.addCell(cell);
 
-                                    cell.setPhrase(
-                                            new Phrase(String.valueOf(
-                                                    usuarioMateria.getCalificacionExamen())));
-                                    table.addCell(cell);
+                                cell.setPhrase(
+                                        new Phrase(String.valueOf(
+                                                usuarioMateria.getCalificacionExamen())));
+                                table.addCell(cell);
 
-                                    cell.setPhrase(new Phrase(String.valueOf(promedioMateria)));
-                                    table.addCell(cell);
-                                    libre = false;
-                                    break;
-                                } else {
-                                    setFreeSubject(table, cell);
-                                    libre = true;
-                                    break;
-                                }
+                                cell.setPhrase(new Phrase(String.valueOf(promedioMateria)));
+                                table.addCell(cell);
+                                libre = false;
+                                break;
+                            } else {
+                                setFreeSubject(table, cell);
+                                libre = true;
+                                break;
                             }
                         }
-                        if (!materiaEcontrada) {
-                            setFreeSubject(table, cell);
-                            libre = true;
-                        }
-
-                    } else {
+                    }
+                    if (!materiaEcontrada) {
                         setFreeSubject(table, cell);
                         libre = true;
                     }
 
-                    float promediofinal;
-
-                    if (libre) {
-                        condicion = "Libre";
-                        promediofinal = usuarioExamenFinal.getCalificacion();
-                    } else {
-                        condicion = "Regular";
-                        promediofinal =
-                                (promedioMateria + usuarioExamenFinal.getCalificacion()) / 2;
-                    }
-
-                    cell.setPhrase(new Phrase(condicion));
-                    table.addCell(cell);
-
-                    cell.setPhrase(
-                            new Phrase(String.valueOf(usuarioExamenFinal.getCalificacion())));
-                    table.addCell(cell);
-
-                    cell.setPhrase(new Phrase(String.valueOf(promediofinal)));
-                    table.addCell(cell);
+                } else {
+                    setFreeSubject(table, cell);
+                    libre = true;
                 }
+
+                float promediofinal;
+
+                if (libre) {
+                    condicion = "Libre";
+                    promediofinal = usuarioExamenFinal.getCalificacion();
+                } else {
+                    condicion = "Regular";
+                    promediofinal =
+                            (promedioMateria + usuarioExamenFinal.getCalificacion()) / 2;
+                }
+
+                cell.setPhrase(new Phrase(condicion));
+                table.addCell(cell);
+
+                cell.setPhrase(
+                        new Phrase(String.valueOf(usuarioExamenFinal.getCalificacion())));
+                table.addCell(cell);
+
+                cell.setPhrase(new Phrase(String.valueOf(promediofinal)));
+                table.addCell(cell);
+//                }
             }
         }
     }

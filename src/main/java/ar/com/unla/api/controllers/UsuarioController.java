@@ -1,5 +1,6 @@
 package ar.com.unla.api.controllers;
 
+import ar.com.unla.api.dtos.response.AnaliticoDTO;
 import ar.com.unla.api.models.response.ErrorResponse;
 import ar.com.unla.api.services.AnaliticoService;
 import ar.com.unla.api.services.UsuarioService;
@@ -52,5 +53,26 @@ public class UsuarioController {
             @ApiParam(required = true) Long id
             , HttpServletResponse response) throws IOException {
         analiticoService.exportToPDF(response, id);
+    }
+
+    @GetMapping("/analitico")
+    @ApiOperation(value = "Se encarga de genera un anaítico academico de un usuario "
+            + "particular para mostrar)")
+    @ApiResponses(
+            value = {
+                    @ApiResponse(code = 200, message = "Analítico"),
+                    @ApiResponse(code = 400, message =
+                            "Request incorrecta al intentar descargar el analítico",
+                            response = ErrorResponse.class),
+                    @ApiResponse(code = 500, message =
+                            "Error interno al intentar descargar el analítico",
+                            response = ErrorResponse.class)
+            }
+    )
+    public AnaliticoDTO getAnalitico(
+            @RequestParam(name = "idUsuario")
+            @NotNull(message = "El parámetro idUsuario no esta informado.")
+            @ApiParam(required = true) Long id) throws IOException {
+        return analiticoService.getAnalitico(id);
     }
 }
