@@ -60,12 +60,12 @@ public class UsuarioController {
             + "particular para mostrar)")
     @ApiResponses(
             value = {
-                    @ApiResponse(code = 200, message = "Analítico"),
+                    @ApiResponse(code = 200, message = "Analítico generado"),
                     @ApiResponse(code = 400, message =
-                            "Request incorrecta al intentar descargar el analítico",
+                            "Request incorrecta al intentar generar el analítico",
                             response = ErrorResponse.class),
                     @ApiResponse(code = 500, message =
-                            "Error interno al intentar descargar el analítico",
+                            "Error interno al intentar generar el analítico",
                             response = ErrorResponse.class)
             }
     )
