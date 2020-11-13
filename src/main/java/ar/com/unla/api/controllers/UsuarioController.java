@@ -1,6 +1,7 @@
 package ar.com.unla.api.controllers;
 
 import ar.com.unla.api.dtos.response.AnaliticoDTO;
+import ar.com.unla.api.models.response.ApplicationResponse;
 import ar.com.unla.api.models.response.ErrorResponse;
 import ar.com.unla.api.services.AnaliticoService;
 import ar.com.unla.api.services.UsuarioService;
@@ -69,10 +70,12 @@ public class UsuarioController {
                             response = ErrorResponse.class)
             }
     )
-    public AnaliticoDTO getAnalitico(
+    public ApplicationResponse<AnaliticoDTO> getAnalitico(
             @RequestParam(name = "idUsuario")
             @NotNull(message = "El parámetro idUsuario no esta informado.")
             @ApiParam(required = true) Long id) throws IOException {
-        return analiticoService.getAnalitico(id);
+
+        return new ApplicationResponse<>(
+                analiticoService.getAnalitico(id), null);
     }
 }
