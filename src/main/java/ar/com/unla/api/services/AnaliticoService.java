@@ -110,7 +110,12 @@ public class AnaliticoService {
                 }
                 cursada.setNotaFinal(usuarioExamenFinal.getCalificacion());
                 cursada.setCondicion(condicion);
-                cursada.setPromedioGeneral(promediofinal);
+
+                if (usuarioExamenFinal.getCalificacion() < 4) {
+                    cursada.setPromedioGeneral(usuarioExamenFinal.getCalificacion());
+                } else {
+                    cursada.setPromedioGeneral(promediofinal);
+                }
 
                 analitico.add(cursada);
             }

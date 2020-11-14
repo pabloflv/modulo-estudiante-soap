@@ -114,7 +114,6 @@ public class AnaliticoPDFExporter {
                 boolean libre = false;
                 boolean materiaEcontrada = false;
 
-//                if (usuarioExamenFinal.getCalificacion() >= 4) {
                 long idMateria =
                         usuarioExamenFinal.getExamenFinal().getMateria().getId();
                 String nombreMateria =
@@ -181,9 +180,14 @@ public class AnaliticoPDFExporter {
                         new Phrase(String.valueOf(usuarioExamenFinal.getCalificacion())));
                 table.addCell(cell);
 
-                cell.setPhrase(new Phrase(String.valueOf(promediofinal)));
-                table.addCell(cell);
-//                }
+                if (usuarioExamenFinal.getCalificacion() < 4) {
+                    cell.setPhrase(
+                            new Phrase(String.valueOf(usuarioExamenFinal.getCalificacion())));
+                    table.addCell(cell);
+                } else {
+                    cell.setPhrase(new Phrase(String.valueOf(promediofinal)));
+                    table.addCell(cell);
+                }
             }
         }
     }
