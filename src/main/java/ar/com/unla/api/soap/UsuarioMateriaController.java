@@ -28,7 +28,7 @@ public class UsuarioMateriaController {
 		UsuarioMateriaDTO usuarioMateriaDTO = new UsuarioMateriaDTO((long)request.getIdMateria(), (long)request.getIdUsuario(),
 				request.getCalificacionExamen(), request.getCalificacionTps());
 		
-		new ApplicationResponse<>(usuarioMateriaService.create(usuarioMateriaDTO),null);
+		response.setApplicationResponse(new ApplicationResponse<>(usuarioMateriaService.create(usuarioMateriaDTO),null));
 		return response;
     }
 }
