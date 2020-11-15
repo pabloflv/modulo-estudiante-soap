@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @JsonPropertyOrder({"data", "errors"})
 @Data
 @NoArgsConstructor
-@XmlSeeAlso(ar.com.unla.api.dtos.response.AnaliticoDTO.class)
+@XmlSeeAlso({ar.com.unla.api.dtos.response.AnaliticoDTO.class, ar.com.unla.api.models.database.UsuarioExamenFinal.class})
 public class ApplicationResponse<T> {
 
     private T data;

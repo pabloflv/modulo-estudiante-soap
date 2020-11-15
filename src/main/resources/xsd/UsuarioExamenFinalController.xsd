@@ -1,0 +1,41 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="ar.com.unla.api.soap"
+           targetNamespace="ar.com.unla.api.soap" elementFormDefault="qualified">
+	
+	<xs:include schemaLocation="ApplicationResponse.xsd"/>
+	
+    <xs:element name="createUsuarioExamenFinalControllerRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idExamenFinal" type="xs:int"/>
+    	        <xs:element name="idUsuario" type="xs:int"/>
+	            <xs:element name="recordatorio" type="xs:boolean"/>
+            	<xs:element name="calificacion" type="xs:float"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="createUsuarioExamenFinalControllerResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="applicationResponse" type="tns:ApplicationResponse"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="updateRemainderUsuarioExamenFinalControllerRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idUsuarioExamenFinal" type="xs:int"/>
+                <xs:element name="recordatorio" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateRemainderUsuarioExamenFinalControllerResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="applicationResponse" type="tns:ApplicationResponse"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

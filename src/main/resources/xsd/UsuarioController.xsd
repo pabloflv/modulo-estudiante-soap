@@ -1,0 +1,29 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="ar.com.unla.api.soap"
+           targetNamespace="ar.com.unla.api.soap" elementFormDefault="qualified">
+	
+	<xs:include schemaLocation="ApplicationResponse.xsd"/>
+	
+    <xs:element name="exportToPDFUsuarioControllerRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idUsuario" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getAnaliticoUsuarioControllerRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idUsuario" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getAnaliticoUsuarioControllerResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="applicationResponse" type="tns:ApplicationResponse"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

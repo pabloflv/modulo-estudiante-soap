@@ -36,4 +36,18 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 	public XsdSchema usuarioControllerSchema() {
 		return new SimpleXsdSchema(new ClassPathResource("xsd/UsuarioController.xsd"));
 	}
+	
+	@Bean(name = "UsuarioExamenFinalController")
+	public DefaultWsdl11Definition usuarioExamenFinalControllerWsdl11Definition(XsdSchema usuarioExamenFinalControllerSchema) {
+		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
+		wsdl11Definition.setPortTypeName("UsuarioExamenFinalControllerPort");
+		wsdl11Definition.setLocationUri("/ws");
+		wsdl11Definition.setTargetNamespace("ar.com.unla.api.soap");
+		wsdl11Definition.setSchema(usuarioExamenFinalControllerSchema);
+		return wsdl11Definition;
+	}
+	@Bean
+	public XsdSchema usuarioExamenFinalControllerSchema() {
+		return new SimpleXsdSchema(new ClassPathResource("xsd/UsuarioExamenFinalController.xsd"));
+	}
 }

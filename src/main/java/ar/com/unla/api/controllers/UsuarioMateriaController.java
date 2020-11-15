@@ -1,6 +1,6 @@
 package ar.com.unla.api.controllers;
 
-import ar.com.unla.api.dtos.request.UsuarioMateriaDTO;
+/*import ar.com.unla.api.dtos.request.UsuarioMateriaDTO;
 import ar.com.unla.api.models.database.UsuarioMateria;
 import ar.com.unla.api.models.response.ApplicationResponse;
 import ar.com.unla.api.models.response.ErrorResponse;
@@ -50,3 +50,4 @@ public class UsuarioMateriaController {
                 null);
     }
 }
+*/

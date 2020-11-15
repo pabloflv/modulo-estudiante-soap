@@ -1,0 +1,25 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="ar.com.unla.api.soap"
+           targetNamespace="ar.com.unla.api.soap" elementFormDefault="qualified">
+    
+    <xs:complexType name="ApplicationResponse">
+        <xs:sequence>
+    		<xs:element minOccurs="1" maxOccurs="1" name="errorResponse" type="tns:ErrorResponse"/>
+    		<xs:any minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="ErrorResponse">
+        <xs:sequence>
+            <xs:element name="timestamp" type="xs:dateTime"/>
+    		<xs:element name="origin" type="xs:string"/>
+    		<xs:element name="errorDetails" maxOccurs="unbounded" type="tns:ErrorDetail"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="ErrorDetail">
+        <xs:sequence>
+    		<xs:element name="code" type="xs:string"/>
+    		<xs:element name="messages" maxOccurs="unbounded" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

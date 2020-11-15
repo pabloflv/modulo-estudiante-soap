@@ -202,25 +202,6 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<groupId>org.springframework.boot</groupId>
 			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>jaxb2-maven-plugin</artifactId>
-				<version>2.2</version>
-				<executions>
-					<execution>
-						<id>xjc</id>
-						<goals>
-							<goal>xjc</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<sources>
-						<source>${project.basedir}/src/main/resources/xsd/ApplicationResponse.xsd</source>
-						<source>${project.basedir}/src/main/resources/xsd/UsuarioController.xsd</source>
-					</sources>
-				</configuration>
-			</plugin>
 		</plugins>
 	</build>
 </project>
