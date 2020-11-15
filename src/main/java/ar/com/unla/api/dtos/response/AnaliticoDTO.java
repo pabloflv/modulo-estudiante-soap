@@ -2,7 +2,6 @@ package ar.com.unla.api.dtos.response;
 
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlAnyElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import lombok.AllArgsConstructor;

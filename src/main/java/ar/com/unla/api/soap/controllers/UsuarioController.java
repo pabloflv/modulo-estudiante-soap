@@ -1,4 +1,4 @@
-package ar.com.unla.api.soap;
+package ar.com.unla.api.soap.controllers;
 
 import java.io.IOException;
 
