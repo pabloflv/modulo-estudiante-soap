@@ -1,6 +1,9 @@
 package ar.com.unla.api;
 
-import com.google.common.collect.ImmutableList;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+
+/*import com.google.common.collect.ImmutableList;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -37,4 +40,15 @@ public class Application {
         return source;
     }
 
+}*/
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
+	}
 }

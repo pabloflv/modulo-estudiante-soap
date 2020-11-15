@@ -1,5 +1,7 @@
 package ar.com.unla.api.dtos.response;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,6 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@XmlRootElement
 public class CursadaDTO {
 
     private String nombreMateria;
