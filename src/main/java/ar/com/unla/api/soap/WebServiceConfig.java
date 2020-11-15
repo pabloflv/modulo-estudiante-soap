@@ -12,6 +12,8 @@ import org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition;
 import org.springframework.xml.xsd.SimpleXsdSchema;
 import org.springframework.xml.xsd.XsdSchema;
 
+import ar.com.unla.api.soap.response.CreateUsuarioMateriaControllerResponse;
+
 @EnableWs
 @Configuration
 public class WebServiceConfig extends WsConfigurerAdapter {
@@ -49,5 +51,19 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 	@Bean
 	public XsdSchema usuarioExamenFinalControllerSchema() {
 		return new SimpleXsdSchema(new ClassPathResource("xsd/UsuarioExamenFinalController.xsd"));
+	}
+	
+	@Bean(name = "UsuarioMateriaController")
+	public DefaultWsdl11Definition usuarioMateriaControllerWsdl11Definition(XsdSchema usuarioMateriaControllerSchema) {
+		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
+		wsdl11Definition.setPortTypeName("UsuarioMateriaControllerPort");
+		wsdl11Definition.setLocationUri("/ws");
+		wsdl11Definition.setTargetNamespace("ar.com.unla.api.soap");
+		wsdl11Definition.setSchema(usuarioMateriaControllerSchema);
+		return wsdl11Definition;
+	}
+	@Bean
+	public XsdSchema usuarioMateriaControllerSchema() {
+		return new SimpleXsdSchema(new ClassPathResource("xsd/UsuarioMateriaController.xsd"));
 	}
 }
